@@ -8,14 +8,14 @@
 FROM node:latest
 
 # Set instructions on build.
-ONBUILD RUN npm install -g yo bower gulp generator-frontkick --allow-root
-ONBUILD ADD package.json /app/
-ONBUILD RUN npm install
-ONBUILD ADD bower.json /app/
-ONBUILD RUN bower install
-ONBUILD ADD . /app
-ONBUILD RUN yo frontkick
-ONBUILD RUN gulp build
+RUN npm install -g yo bower gulp generator-frontkick --allow-root
+ADD package.json /app/
+RUN npm install
+ADD bower.json /app/
+RUN bower install
+ADD . /app
+RUN yo frontkick
+RUN gulp build
 
 # Define working directory.
 WORKDIR /app/src
