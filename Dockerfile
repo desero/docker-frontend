@@ -9,16 +9,16 @@ FROM node:latest
 
 # Set instructions on build.
 ONBUILD RUN npm install -g yo bower gulp generator-frontkick --allow-root
-# ONBUILD ADD package.json /app/
-# ONBUILD RUN npm install
-# ONBUILD ADD bower.json /app/
-# ONBUILD RUN bower install --allow-root
-# ONBUILD ADD . /app
+ONBUILD ADD package.json /app/
+ONBUILD RUN npm install
+ONBUILD ADD bower.json /app/
+ONBUILD RUN bower install
+ONBUILD ADD . /app
 ONBUILD RUN yo frontkick
 ONBUILD RUN gulp build
 
 # Define working directory.
-WORKDIR /src
+WORKDIR /app/src
 
 # Define default command.
 CMD ["npm", "-v"]
