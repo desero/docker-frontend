@@ -5,10 +5,10 @@
 #
 
 # Pull base image.
-FROM dockerfile/nodejs-bower-gulp
+FROM dockerfile/nodejs
 
 # Set instructions on build.
-ONBUILD RUN npm install -g yo
+ONBUILD RUN npm install -g yo bower gulp
 ONBUILD RUN npm install -g generator-frontkick
 # ONBUILD ADD package.json /app/
 # ONBUILD RUN npm install
