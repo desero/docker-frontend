@@ -8,8 +8,7 @@
 FROM node:latest
 
 # Set instructions on build.
-ONBUILD RUN npm install -g yo bower gulp
-ONBUILD RUN npm install -g generator-frontkick
+ONBUILD RUN npm install -g yo bower gulp generator-frontkick --allow-root
 # ONBUILD ADD package.json /app/
 # ONBUILD RUN npm install
 # ONBUILD ADD bower.json /app/
