@@ -5,7 +5,7 @@
 #
 
 # Pull base image.
-FROM dockerfile/nodejs
+FROM node:latest
 
 # Set instructions on build.
 ONBUILD RUN npm install -g yo bower gulp
