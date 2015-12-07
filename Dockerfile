@@ -14,12 +14,12 @@ RUN npm install -g bower gulp yo generator-frontkick
 WORKDIR /home/app
 ADD . /home/app
 RUN npm cache clean
-RUN id
-RUN pwd
+# RUN id
+# RUN pwd
 # RUN mkdir /root/.config && mkdir /root/.config/configstore
 # RUN chmod g+rwx /root /root/.config /root/.config/configstore
 # RUN ls -la /root/.config/configstore
-# RUN yo frontkick
+RUN yo frontkick --name="test" --description="yex" --url="rewe" --repo="sfadf"
 # RUN gulp build
 
 # Expose ports.
