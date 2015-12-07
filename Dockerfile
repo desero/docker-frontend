@@ -14,8 +14,8 @@ RUN npm install -g yo bower gulp generator-frontkick --allow-root
 # ADD bower.json /app/
 # RUN bower install
 # ADD . /app
-RUN yo frontkick --name='Application' --description='Docker generated application' --url='app.local' --repo='git@github.com:desero/docker-frontend.git'
-RUN gulp build
+RUN yo frontkick --name='Application' --description='Docker generated application' --url='app.local' --repo='git@github.com:desero/docker-frontend.git' --allow-root
+RUN gulp build --allow-root
 
 # Define working directory.
 WORKDIR /app/src
