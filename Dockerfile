@@ -8,20 +8,21 @@
 FROM node:latest
 
 # Set instructions on build.
-RUN npm install -g yo bower gulp generator-frontkick --allow-root
-# ADD package.json /app/
-# RUN npm install
-# ADD bower.json /app/
-# RUN bower install
-# ADD . /app
-RUN yo frontkick --allow-root
-RUN gulp build --allow-root
+# RUN chown -R $USER:$GROUP ~/.npm
+RUN npm install -g bower gulp yo generator-frontkick
 
-# Define working directory.
-WORKDIR /app/src
-
-# Define default command.
-CMD ["npm", "-v"]
+WORKDIR /home/app
+ADD . /home/app
+RUN npm cache clean
+RUN id
+RUN pwd
+# RUN mkdir /root/.config && mkdir /root/.config/configstore
+# RUN chmod g+rwx /root /root/.config /root/.config/configstore
+# RUN ls -la /root/.config/configstore
+# RUN yo frontkick
+# RUN gulp build
 
 # Expose ports.
 EXPOSE 8080
+
+CMD make run
